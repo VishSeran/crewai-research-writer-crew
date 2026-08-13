@@ -37,3 +37,7 @@ class LLMHandler:
         except Exception:
             logger.exception("Error in llm handler")
             raise
+        
+        
+llm_handler = LLMHandler()
+llm = llm_handler.llm
