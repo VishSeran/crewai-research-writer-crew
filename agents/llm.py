@@ -30,10 +30,14 @@ class LLMHandler:
             
             logger.info("llm is initialized")
             
-        except ValueError as e:
+        except ValueError:
             logger.exception("Value error in llm handler")
             raise
         
-        except Exception as e:
+        except Exception:
             logger.exception("Error in llm handler")
             raise
+        
+        
+llm_handler = LLMHandler()
+llm = llm_handler.llm
