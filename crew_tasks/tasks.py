@@ -16,11 +16,21 @@ class CrewTasks:
         try:
             
             self.research_agent = ResearchAgent().research_agent
+            logger.info("Research agent is up")
+            
             self.writer_agent =  WriterAgent().writer_agent
+            logger.info("Writer agent is up")
             
             self.research_task = Task(
                 description="analyze the major {topic}, identifying key trends and technologies. Provide a detailed report on their potential impact.",
-                agent=ResearchAgent
+                agent=self.research_agent,
+                expected_output="A detailed report on {topic}, including trends, emerging technologies, and their impact."
+            )
+            
+            self.writer_task = Task(
+                description="Create an engaging blog post based on the research findings about {topic}. Tailor the content for a tech-savvy audience, ensuring clarity and interest.",
+                agent = self.writer_agent,
+                expected_output = "A 4-paragraph blog post on {topic}, written clearly and engagingly for tech enthusiasts."
             )
             
         except ValueError:
