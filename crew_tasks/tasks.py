@@ -33,6 +33,8 @@ class CrewTasks:
                 expected_output = "A 4-paragraph blog post on {topic}, written clearly and engagingly for tech enthusiasts."
             )
             
+            logger.info("research and writer tasks are configured")
+            
         except ValueError:
             logger.exception("Value error in crew tasks init")
             raise
