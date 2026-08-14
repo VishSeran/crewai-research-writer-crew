@@ -48,6 +48,10 @@ def gradio_interface():
         submit_btn = gr.Button("Submit")
         
         submit_btn.click(
-            fn=
+            fn=application,
+            inputs=topic,
+            outputs=result
         )
+        
+        interface.launch()
     
