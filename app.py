@@ -1,6 +1,7 @@
 import gradio as gr
 
 from configs.logger import get_logger
+from crew.crew import AppCrew
 
 logger = get_logger("app")
 
@@ -12,7 +13,11 @@ def application(topic):
         if not topic:
             raise ValueError("Topic is missing")
         
+        crew = AppCrew()
+        response = crew.get_response(topic)
         
+        logger.info("response is fetched")
+        return response
         
         
     except Exception:
