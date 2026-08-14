@@ -37,4 +37,28 @@ class AppCrew:
         except Exception:
             logger.exception("Error in app crew init")
             raise
+        
+        
+    def get_response(self, topic):
+        
+        
+        try:
+            
+            if not topic:
+                raise ValueError("topic is missing")
+            
+            response = self.crews.kickoff(inputs={
+                "topic": topic
+            })
+            
+            logger.info("response is fetched")
+            return response.raw
+            
+        except ValueError:
+            logger.exception("Value error in app crew get_response")
+            raise
+        
+        except Exception:
+            logger.exception("Error in app crew get_response")
+            raise    
     

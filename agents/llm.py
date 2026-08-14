@@ -25,7 +25,11 @@ class LLMHandler:
             self.llm = LLM(
                 model=GROQ_MODEL,
                 api_key=groq_api,
-                max_tokens=4000
+                max_tokens=4000,
+                is_litellm=True,
+                additional_params={
+                        "cache_breakpoint": False
+                    }
             )
             
             logger.info("llm is initialized")
